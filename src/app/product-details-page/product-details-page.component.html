@@ -1,0 +1,26 @@
+
+<div *ngIf="product">
+<div class="card-container">
+    <div class="card" style="width: 18rem;">
+      <img [src]="getImageUrl(product)" alt="Product image" class="card-img-top" *ngIf="getImageUrl(product)">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.title }}</h5> 
+      </div>
+    </div>
+</div>
+</div>
+<p class="card-name">{{"Name :"+product?.name}}</p>
+<p class="Card-author">{{"Author :"+product?.Author}}</p>
+<p class="product-price">{{"Price :" + product?.price +"RS."}}</p>
+<p class="card-text">{{ "Description :" +product?.description }}</p>
+
+<!--
+<div *ngIf="product">
+    <h1>{{ product.name }}</h1>
+    <h2>{{ product.title }}</h2>
+    <p>Author: {{ product.Author }}</p>
+    <p>Price: {{ product.price | currency }}</p>
+    <p>{{ product.description }}</p>
+     Add other product details as needed 
+</div>
+-->

@@ -1,0 +1,61 @@
+
+<div class="card-container" *ngFor="let product of products">
+    <div class="card" style="width: 18rem;" (click)="viewProductDetail(product.id)">
+      <img [src]="getImageUrl(product)" alt="Product image" class="card-img-top" *ngIf="getImageUrl(product)">
+      <div class="card-body"  >
+        <h5 class="card-title">{{ product.title }}</h5>
+      </div>
+      <button class="btn btn-primary" (click)="addToCart(product)">Add to Cart</button>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="card-container">
+    <div class="card" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Henry balgon</h5>
+        <p class="card-text">This is an amazing Book related to Living a Happy Life</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  
+    <div class="card" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+
+</div>
+-->
+  

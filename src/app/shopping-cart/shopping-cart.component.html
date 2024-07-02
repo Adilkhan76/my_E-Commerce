@@ -1,0 +1,33 @@
+<div *ngIf="products" style="text-align: center; margin-top: 1%;">
+  <button class="btn btn-danger" (click)="ClearCart()">Remove All Cart</button>
+</div>
+
+
+<div *ngIf="products">
+  <div class="card-container">
+    <div class="card" *ngFor="let product of products" style="width: 18rem;">
+      <img [src]="getImageUrl(product)" alt="Product image" class="card-img-top" *ngIf="getImageUrl(product)">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.title }} </h5>
+        <h5>Quantity: {{ product.quantity }} || Price: {{ product.price * product.quantity }}</h5>
+       
+      </div>
+      <span>
+        <button class="btn btn-danger" (click)="deleteFromCart(product)">Remove From Cart</button>
+        <button class="btn btn-primary" (click)="increaseQuantity(product)">+</button>
+        <button class="btn btn-primary" (click)="decreaseQuantity(product)">-</button>
+      </span>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="products" style="text-align: center; margin: 0%;">
+  <h3>{{"Total Price is :"+ this.total+" Rs"}}</h3>
+</div>
+
+<span *ngIf="products" class="order">
+  <button [disabled]="products.length==0" class="btn btn-success" (click)="checkoutFormDetails()">Place Your
+    order</button>
+
+</span>

@@ -1,0 +1,55 @@
+
+<!-- src/app/my-form/my-form.component.html -->
+
+<form class="forms" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    
+  <div class="signup"><h5>Customer Details : Order</h5></div>
+    <div>
+      <label for="username">Name</label>
+      <input id="username" formControlName="username">
+      <div class="alert alert-danger" *ngIf="myForm.get('username')?.touched && myForm.get('username')?.invalid">
+        <div *ngIf="myForm.get('username')?.errors?.['required']">Username is required</div>
+        <div *ngIf="myForm.get('username')?.errors?.['minlength']">Minimum length is 3</div>
+        <div *ngIf="myForm.get('username')?.errors?.['maxlength']">Maximum length is 20</div>
+      </div>
+    </div>
+  
+    <div>
+      <label for="email">Email</label>
+      <input id="email" formControlName="email">
+      <div *ngIf="myForm.get('email')?.touched && myForm.get('email')?.invalid" class="alert alert-danger">
+        <div *ngIf="myForm.get('email')?.errors?.['required']">Email is required</div>
+        <div *ngIf="myForm.get('email')?.errors?.['email']">Invalid email</div>
+      </div>
+    </div>
+  
+    <div>
+      <label for="age">Age</label>
+      <input id="age" formControlName="age">
+      <div *ngIf="myForm.get('age')?.touched && myForm.get('age')?.invalid" class="alert alert-danger">
+        <div *ngIf="myForm.get('age')?.errors?.['required']">Age is required</div>
+        <div *ngIf="myForm.get('age')?.errors?.['min']">Minimum age is 18</div>
+        <div *ngIf="myForm.get('age')?.errors?.['max']">Maximum age is 100</div>
+      </div>
+    </div>
+  
+    <div>
+      <label for="phoneNumber">Phone Number</label>
+      <input id="phoneNumber" formControlName="phoneNumber">
+      <div *ngIf="myForm.get('phoneNumber')?.touched && myForm.get('phoneNumber')?.invalid" class="alert alert-danger">
+        <div *ngIf="myForm.get('phoneNumber')?.errors?.['required']">Phone Number is required</div>
+        <div *ngIf="myForm.get('phoneNumber')?.errors?.['pattern']">Invalid Phone Number</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="Address">Address</label>
+      <input id="Address" formControlName="Address">
+      <div *ngIf="myForm.get('Address')?.touched && myForm.get('Address')?.invalid" class="alert alert-danger">
+        <div *ngIf="myForm.get('Address')?.errors?.['required']">Address is required</div>
+      </div>
+    </div>
+    
+    <button type="submit" [disabled]="myForm.invalid" (click)="thanks()"> Submit</button>
+</form>
+  
